@@ -1,0 +1,12 @@
+INSERT INTO Students (first_name, last_name)
+VALUES ('John', 'Smith');
+
+INSERT INTO Quizzes (subject, num_questions, quiz_date)
+VALUES ('Python Basics', 5, '2015-02-05');
+
+INSERT INTO StudentResults (student_id, quiz_id, score)
+VALUES (
+    (SELECT student_id FROM Students WHERE first_name = 'John' AND last_name = 'Smith'),
+    (SELECT quiz_id FROM Quizzes WHERE subject = 'Python Basics'),
+    85
+);
