@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head><title>Add Quiz</title></head>
+<body>
+  <h1>Add Quiz</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="post">
+    Subject: <input type="text" name="subject"><br>
+    Number of Questions: <input type="number" name="num_questions"><br>
+    Quiz Date (YYYY-MM-DD): <input type="text" name="quiz_date"><br>
+    <input type="submit" value="Add Quiz">
+  </form>
+  <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+</body>
+</html>
